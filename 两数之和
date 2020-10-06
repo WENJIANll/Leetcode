@@ -1,0 +1,13 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        outlist = []
+        for i in nums:
+            j = target - i
+            iindex = nums.index(i)
+            #用到nums的切片是防止index()返回的是i的下标，也就是元素第一次出现的位置
+            if(j in nums[iindex+1:]):
+                jindex = nums[iindex+1:].index(j) + iindex + 1
+                outlist.append(iindex)
+                outlist.append(jindex)
+                break
+        return outlist
