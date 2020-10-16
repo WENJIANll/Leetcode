@@ -75,7 +75,6 @@ class Solution:
             for withindex2 in range(len(withtwolist)):
                 if two.count(withtwolist[withindex2]) > 0:
                     two.remove(withtwolist[withindex2])
-            print(two)
             if two == [] and one != []:
                 return -1
             elif two == [] or (two[len(two)-1] == lasttwo):
@@ -88,7 +87,8 @@ class Solution:
 # [[2,2,2,1,1,1,1,1,1],[],[0,1,1]]
 
 S =Solution()
-out = S.orangesRotting([[2,2,2],[1,1,0],[0,1,1]])
+# out = S.orangesRotting([[2,2,2],[1,1,0],[0,1,1]])
+out = S.orangesRotting([[2,2,2,1,1,1,1,1,1],[],[0,1,1]])
 
 print(out)
 
