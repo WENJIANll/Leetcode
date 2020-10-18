@@ -38,8 +38,6 @@ class Solution:
                 for top in range(long - 1 ):
                     outlist.append(alist[num][top+num])
                 for right in range(wide - 1 ):
-                    if long == 2 :
-                        print(alist[num+right])
                     outlist.append(alist[num+right][L - 1 - num ])
                 for low in range(long - 1 ):
                     outlist.append(alist[W - 1 - num][L -1 -num -low])
