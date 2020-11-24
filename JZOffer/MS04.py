@@ -30,21 +30,26 @@ class Solution:
         if not matrix:
             return False
         else:
-            xlen = len(matrix[0])
-            ylen = len(matrix)
-            x = xlen / 2
-            y = ylen / 2
-            prex = 0
-            prey = 0
-            while not (abs(x - prex) == 1 or abs(y - prey) == 1):
-                if matrix[y][x] > target:
-                    prex,prey = x,y
-                    y = y / 2
-                    x = x / 2
-                elif matrix[y][x] < target:
-                    prex, prey = x, y
-                    y = y + y/2
-                    x = x + x/2
-                elif matrix[y][x] == target:
+            xlen = len(matrix[0])-1
+            ylen = 0
+            len_of_matrix = len(matrix)
+            while xlen >= 0 and ylen <= (len_of_matrix -1):
+                if target == matrix[ylen][xlen]:
                     return True
+                elif target < matrix[ylen][xlen]:
+                    xlen -= 1
+                elif target > matrix[ylen][xlen]:
+                    ylen += 1
+            return False
+
+
+matrix = [
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+s = Solution()
+print(s.findNumberIn2DArray(matrix,15))
 
